@@ -10,6 +10,7 @@ form.addEventListener("submit", (event) => {
     const li = document.querySelector("li")
 
     const novoItem = li.cloneNode(true)
+    
     const codigo = crypto.randomUUID()
     novoItem.setAttribute("codigo", codigo)
     const novoItemValue = novoItem.querySelector("input")
@@ -34,8 +35,6 @@ function editar(item) {
 
     div.style.display = "none";
     button.style.display = "block";
-
-
 }
 
 function save(item) {
@@ -180,3 +179,32 @@ function editItem(key, data) {
     const listaString = JSON.stringify(data)
     localStorage.setItem(key, listaString)
 }
+
+function carregarTela(){
+    const data = getLocalStorage("listaItens")
+    let itens = ""
+
+    for(const item of data){
+        itens += `<li class="product">
+                                <input value="${item.value}" class="product-name" readonly codigo="${item.codigo}" />
+                                <div class="actions">
+                                    <button class="check" role="check">
+                                        ✔
+                                    </button>
+                                    <button class="edit" role="edit">
+                                        ✏
+                                    </button>
+                                    <button class="delete" role="delete">
+                                        🗑
+                                    </button>
+                                </div>
+                                <button style="display: none;" class="check save" role="save">
+                                    save
+                                </button>
+                            </li>`
+    }
+
+    lista.innerHTML += itens
+}
+
+carregarTela()
