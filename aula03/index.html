@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Lista de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <h1>🛒 Mini Lista de Compras</h1>
+            <p>Adicione, visualize, edite e remova seus produtos.</p>
+        </header>
+        <form class="add-product">
+            <input name="newItem" type="text" id="productInput" placeholder="Digite um produto...">
+            <button id="addButton">
+                Adicionar
+            </button>
+        </form>
+        <section class="shopping-list">
+            <h2>Produtos</h2>
+            <ul id="productList">
+                <li class="product">
+                    <input value="Leite" class="product-name" readonly />
+                    <div class="actions">
+                        <button class="check" role="check">
+                            ✔
+                        </button>
+                        <button class="edit" role="edit">
+                            ✏
+                        </button>
+                        <button class="delete" role="delete">
+                            🗑
+                        </button>
+                    </div>
+                    <button style="display: none;" class="check save" role="save">
+                        save
+                    </button>
+                </li>
+                <li class="product">
+                    <input value="Café" class="product-name" readonly />
+                    <div class="actions">
+                        <button class="check" role="check">
+                            ✔
+                        </button>
+                        <button class="check cancel" style="display: none;" role="cancel">
+                            X
+                        </button>
+                        <button class="edit" role="edit">
+                            ✏
+                        </button>
+                        <button class="delete" role="delete">
+                            🗑
+                        </button>
+
+                    </div>
+                    <button style="display: none;" class="check save" role="save">
+                        save
+                    </button>
+                </li>
+            </ul>
+        </section>
+        <input type="text">
+    </main>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

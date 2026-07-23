@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#edf2f7;
+    display:flex;
+    justify-content:center;
+    padding:40px;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+    background:#fff;
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+header h1{
+    color:#2d3748;
+    margin-bottom:8px;
+}
+
+header p{
+    color:#718096;
+}
+
+.add-product{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.add-product input{
+    flex:1;
+    padding:14px;
+    border:1px solid #cbd5e0;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.add-product input:focus{
+    outline:none;
+    border-color:#4299e1;
+}
+
+.add-product button{
+    padding:14px 20px;
+    border:none;
+    border-radius:10px;
+    background:#3182ce;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    transition:.2s;
+}
+
+.add-product button:hover{
+    background:#2b6cb0;
+}
+
+.shopping-list h2{
+    margin-bottom:15px;
+    color:#2d3748;
+}
+
+#productList{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.product{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 18px;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    transition:.2s;
+}
+
+.product:hover{
+    border-color:#4299e1;
+    transform:translateY(-2px);
+}
+
+.product-name{
+    font-size:17px;
+    color:#2d3748;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+}
+
+.actions button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+    transition:.2s;
+}
+
+.check{
+    background:#bee3f8;
+}
+
+.check:hover{
+    background:#90cdf4;
+}
+
+.edit{
+    background:#fefcbf;
+}
+
+.edit:hover{
+    background:#faf089;
+}
+
+.delete{
+    background:#fed7d7;
+}
+
+.delete:hover{
+    background:#fc8181;
+}
+
+input{
+    outline: none;
+    border: none
+}
+
+
+@media(max-width:600px){
+
+    .add-product{
+        flex-direction:column;
+    }
+
+    .actions{
+        margin-top:10px;
+    }
+
+    .product{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+}
