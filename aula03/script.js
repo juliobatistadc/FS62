@@ -1,3 +1,5 @@
+import { saveOnLocalStorage, getLocalStorage, editItemLocalStorage } from "./storageManager.js"
+
 const form = document.getElementsByClassName("add-product")[0]
 // const form = document.querySelector(".add-product")
 
@@ -9,17 +11,37 @@ form.addEventListener("submit", (event) => {
     const input = innerForm.querySelector("input")
     const li = document.querySelector("li")
 
-    const novoItem = li.cloneNode(true)
-    
-    const codigo = crypto.randomUUID()
-    novoItem.setAttribute("codigo", codigo)
-    const novoItemValue = novoItem.querySelector("input")
 
-    novoItemValue.value = input.value
+    // const novoItem = li.cloneNode(true)
+    // novoItem.setAttribute("codigo", codigo)
+    // const novoItemValue = novoItem.querySelector("input")
+    // novoItemValue.value = input.value
+
+    const codigo = crypto.randomUUID()
+
+
+    lista.innerHTML += `<li class="product" codigo="${codigo}">
+                            <input value="${input.value}" class="product-name" readonly />
+                            <div class="actions">
+                                <button class="check" role="check">
+                                    ✔
+                                </button>
+                                <button class="edit" role="edit">
+                                    ✏
+                                </button>
+                                <button class="delete" role="delete">
+                                    🗑
+                                </button>
+                            </div>
+                            <button style="display: none;" class="check save" role="save">
+                                save
+                            </button>
+                        </li>`
+
 
     saveOnLocalStorage("listaItens", { value: input.value, check: false, codigo: codigo })
 
-    lista.appendChild(novoItem)
+    // lista.appendChild(novoItem)
 
     input.value = ""
 })
@@ -53,6 +75,8 @@ function save(item) {
         return elemento.codigo !== item.getAttribute("codigo") ?
             elemento : Object.assign(elemento, { value: input.value })
     })
+
+    console.log(novaLista)
 
     editItem("listaItens", novaLista)
 }
@@ -154,54 +178,28 @@ lista.addEventListener("click", (event) => {
 })
 
 
-
-
-
-
-
-
-
-function saveOnLocalStorage(key, data) {
-    const info = getLocalStorage(key)
-    const lista = info ? info : []
-    lista.push(data)
-
-    const listaString = JSON.stringify(lista)
-    localStorage.setItem(key, listaString)
-}
-
-function getLocalStorage(key) {
-    const data = localStorage.getItem(key)
-    return JSON.parse(data) || []
-}
-
-function editItem(key, data) {
-    const listaString = JSON.stringify(data)
-    localStorage.setItem(key, listaString)
-}
-
 function carregarTela(){
     const data = getLocalStorage("listaItens")
     let itens = ""
 
     for(const item of data){
-        itens += `<li class="product">
-                                <input value="${item.value}" class="product-name" readonly codigo="${item.codigo}" />
-                                <div class="actions">
-                                    <button class="check" role="check">
-                                        ✔
-                                    </button>
-                                    <button class="edit" role="edit">
-                                        ✏
-                                    </button>
-                                    <button class="delete" role="delete">
-                                        🗑
-                                    </button>
-                                </div>
-                                <button style="display: none;" class="check save" role="save">
-                                    save
-                                </button>
-                            </li>`
+        itens += `<li class="product" codigo="${item.codigo}">
+                        <input value="${item.value}" class="product-name" readonly />
+                        <div class="actions">
+                            <button class="check" role="check">
+                                ✔
+                            </button>
+                            <button class="edit" role="edit">
+                                ✏
+                            </button>
+                            <button class="delete" role="delete">
+                                🗑
+                            </button>
+                        </div>
+                        <button style="display: none;" class="check save" role="save">
+                            save
+                        </button>
+                    </li>`
     }
 
     lista.innerHTML += itens
