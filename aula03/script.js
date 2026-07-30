@@ -78,7 +78,7 @@ function save(item) {
 
     console.log(novaLista)
 
-    editItem("listaItens", novaLista)
+    editItemLocalStorage("listaItens", novaLista)
 }
 
 function cancel(item) {
@@ -96,8 +96,8 @@ function check(item) {
     const div = item.querySelector(".check");
     const button = item.querySelector("button.check");
     const buttons = item.querySelectorAll("button");
-    const editButton = item.querySelectorAll("button.edit");
-    const deleteButton = item.querySelectorAll("button.delete");
+    const editButton = item.querySelector("button.edit");
+    const deleteButton = item.querySelector("button.delete");
     // div.style.display = 'none'
     // button.style.display = 'block'
     // input.style.textDecoration = 'line-through'
@@ -107,29 +107,41 @@ function check(item) {
         button.textContent = '✔'
         editButton.disabled = false
         deleteButton.disabled = false
+
+        const listaItens = getLocalStorage("listaItens")
+
+        const novaLista = listaItens.map((elemento) => {
+            return elemento.codigo !== item.getAttribute("codigo") ?
+                elemento : Object.assign(elemento, { check: false })
+        })
+
+        editItemLocalStorage("listaItens", novaLista)
     } else {
         input.style.textDecoration = 'line-through'
         button.textContent = 'X'
         editButton.disabled = true
         deleteButton.disabled = true
-    }
+        const listaItens = getLocalStorage("listaItens")
 
+        const novaLista = listaItens.map((elemento) => {
+            return elemento.codigo !== item.getAttribute("codigo") ?
+                elemento : Object.assign(elemento, { check: true })
+        })
+
+        editItemLocalStorage("listaItens", novaLista)
+    }
 
     // input.style.textDecoration = input.style.textDecoration === "line-through" ?  "none" : "line-through"
     // button.innerText = button.innerText === 'X' ? '✔' : 'X'
 
-
-
-
-
-    for (const button of buttons) {
-        if (button.role === 'check') continue
-        if (!button.getAttribute('disabled')) {
-            button.setAttribute('disabled', true)
-        } else {
-            button.removeAttribute('disabled')
-        }
-    }
+    // for (const button of buttons) {
+    //     if (button.role === 'check') continue
+    //     if (!button.getAttribute('disabled')) {
+    //         button.setAttribute('disabled', true)
+    //     } else {
+    //         button.removeAttribute('disabled')
+    //     }
+    // }
 
 }
 
@@ -163,6 +175,14 @@ function check2(item) {
 function excluir(item) {
     const parent = item.closest('ul')
     parent.removeChild(item)
+
+    const listaItens = getLocalStorage("listaItens")
+
+    const novaLista = listaItens.filter((elemento) => {
+        return elemento.codigo !== item.getAttribute("codigo")
+    })
+
+    editItemLocalStorage("listaItens", novaLista)
 }
 
 lista.addEventListener("click", (event) => {
@@ -178,21 +198,21 @@ lista.addEventListener("click", (event) => {
 })
 
 
-function carregarTela(){
+function carregarTela() {
     const data = getLocalStorage("listaItens")
     let itens = ""
 
-    for(const item of data){
+    for (const item of data) {
         itens += `<li class="product" codigo="${item.codigo}">
-                        <input value="${item.value}" class="product-name" readonly />
+                        <input style="${item.check && 'text-decoration: line-through'}" value="${item.value}" class="product-name" readonly />
                         <div class="actions">
                             <button class="check" role="check">
-                                ✔
+                                ${!item.check ? "✔" : "X"}
                             </button>
-                            <button class="edit" role="edit">
+                            <button class="edit" role="edit" ${item.check && 'disabled'}>
                                 ✏
                             </button>
-                            <button class="delete" role="delete">
+                            <button class="delete" role="delete"  ${item.check && 'disabled'}>
                                 🗑
                             </button>
                         </div>
