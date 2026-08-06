@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+    <ul id="list">
+
+    </ul>
+    <script type="module">
+        const prevButton = document.querySelector("#prev")
+        const nextButton = document.querySelector("#next")
+        const list = document.querySelector("#list")
+
+        let data = await getCharacters()
+        loadScreen(data)
+
+
+        async function getCharacters(url= "https://rickandmortyapi.com/api/character?page=1"){
+            if(!url) return
+            const fetchData = await fetch(url)
+            return await fetchData.json()
+        }
+
+        function loadScreen(data){
+            const listItems = data.results.map(character => {
+                return `
+                <li>
+                    <img src="${character.image}" alt="">
+                    <span>Nome: </span>
+                    <span>${character.name}</span>
+                    <span>Specie: </span>
+                    <span>${character.species}</span>
+                    <span>Status: </span>
+                    <span>${character.status}</span>
+                    <span>Localização: </span>
+                    <span>${character.location.name}</span>
+                </li>
+                `
+            })
+    
+            list.innerHTML = listItems.join("")
+        }
+
+        nextButton.addEventListener('click', async () => {
+            data = await getCharacters(data?.info?.next)
+            if(data) loadScreen(data)
+        })
+        
+        prevButton.addEventListener('click', async () => {
+            data = await getCharacters(data?.info?.prev)
+            if(data) loadScreen(data)
+        })
+
+    </script>
+</body>
+</html>
