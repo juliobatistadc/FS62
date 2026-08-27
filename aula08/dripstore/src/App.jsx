@@ -1,12 +1,9 @@
-import ProductSection from './components/ProductSection.jsx'
-import Section from './components/Section.jsx'
+import Register from './pages/Register.jsx'
 
 function App() {
   return (
     <>
-      <Section titulo= "Produtos em alta">
-        <ProductSection />
-      </ Section>
+      <Register />
     </>
   )
 }

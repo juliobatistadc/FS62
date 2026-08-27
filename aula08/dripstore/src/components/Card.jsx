@@ -4,7 +4,7 @@
 function Card({desconto, src, alt, tipo, produto, genero, preco}){
     return (
         <>
-            <div>
+            <div className="flex flex-col w-48 bg-amber-400">
                 {desconto && (
                     <span className="tag">{desconto * 100}% OFF</span>
                 )}
