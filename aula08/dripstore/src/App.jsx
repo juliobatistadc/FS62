@@ -1,9 +1,9 @@
-import Register from './pages/Register.jsx'
+import Rotas from './rotas/Rotas.jsx'
 
 function App() {
   return (
     <>
-      <Register />
+      <Rotas />
     </>
   )
 }
