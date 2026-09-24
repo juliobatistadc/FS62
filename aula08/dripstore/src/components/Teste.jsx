@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 
-function Slide({imgs, width, temporizador}) {
+function Teste({imgs, width, timer}) {
     const container = useRef(null)
     const [containerLargura, setContainerLargura] = useState(0)
-    const [transitionTime, setTransitionTime] = useState(temporizador)
+    const [transitionTime, setTransitionTime] = useState(0.5)
     const [indiceAtivo, setIndiceAtivo] = useState(1)
 
     const innerImgs = [...imgs]
@@ -14,7 +14,7 @@ function Slide({imgs, width, temporizador}) {
     innerImgs.unshift(ultimoElemento)
 
     for (let i = 0; i < innerImgs.length; i++) {
-        elementos.push(<img key={i} id={i} src={innerImgs[i]} style={{minWidth: width}} className="teste bg-red-700 border flex justify-center items-center text-[36px]" />)
+        elementos.push(<div style={{minWidth: width}} className="h-60"><img key={i} id={i} src={innerImgs[i]} style={{minWidth: width}} className="teste bg-red-700 border flex justify-center items-center text-[36px] object-contain" /></div>)
     }
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function Slide({imgs, width, temporizador}) {
             const timer = setTimeout(() => {
                 setTransitionTime(0)
                 setIndiceAtivo(innerImgs.length - 2)
-            }, temporizador * 1000)
+            }, 500)
 
             return () => {
                 clearTimeout(timer)
@@ -41,14 +41,14 @@ function Slide({imgs, width, temporizador}) {
             const timer = setTimeout(() => {
                 setTransitionTime(0)
                 setIndiceAtivo(1)
-            }, temporizador * 1000)
+            }, 500)
 
             return () => {
                 clearTimeout(timer)
             }
         }
 
-        setTransitionTime(timer)
+        setTransitionTime(0.5)
 
     }, [container, indiceAtivo])
 
@@ -79,4 +79,4 @@ function Slide({imgs, width, temporizador}) {
     )
 }
 
-export default Slide
+export default Teste
