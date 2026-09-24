@@ -16,7 +16,8 @@ function Home() {
     return (
         <>
             <ProductSection />
-            <Slide imgs={lista} width={500} temporizador={500} />
+            <Slide imgs={lista} width={500} temporizador={0.5} showIndice={true} />
+            <Slide imgs={lista} width={500} temporizador={0.5}  />
             {/* <Teste imgs={lista} width={500} timer={500} /> */}
         </>
     )

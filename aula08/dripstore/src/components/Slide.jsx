@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-function Slide({imgs, width, temporizador}) {
+function Slide({ imgs, width, temporizador, showIndice }) {
     const container = useRef(null)
     const [containerLargura, setContainerLargura] = useState(0)
     const [transitionTime, setTransitionTime] = useState(temporizador)
@@ -14,7 +14,7 @@ function Slide({imgs, width, temporizador}) {
     innerImgs.unshift(ultimoElemento)
 
     for (let i = 0; i < innerImgs.length; i++) {
-        elementos.push(<img key={i} id={i} src={innerImgs[i]} style={{minWidth: width}} className="teste bg-red-700 border flex justify-center items-center text-[36px]" />)
+        elementos.push(<img key={i} id={i} src={innerImgs[i]} style={{ minWidth: width }} className="teste bg-red-700 border flex justify-center items-center text-[36px]" />)
     }
 
     useEffect(() => {
@@ -48,7 +48,7 @@ function Slide({imgs, width, temporizador}) {
             }
         }
 
-        setTransitionTime(timer)
+        setTransitionTime(temporizador)
 
     }, [container, indiceAtivo])
 
@@ -62,19 +62,20 @@ function Slide({imgs, width, temporizador}) {
         }
     }
 
-    console.log(indiceAtivo)
-
     return (
         <>
-            <div ref={container} style={{width: width}} className="overflow-hidden relative">
+            <div ref={container} style={{ width: width }} className="overflow-hidden relative">
                 <div className={`flex relative`} style={{ left: `-${containerLargura * indiceAtivo}px`, transitionDuration: `${transitionTime}s` }}>
                     {elementos}
                 </div>
-                <button id="left" className="w-5 bg-[#0000ff50] absolute left-0 top-0 bottom-0" onClick={() => moveSlide("esquerda")}>
-                    
-                </button>
-                <button id="right" className="w-5 bg-[#0000ff50] absolute right-0 top-0 bottom-0" onClick={() => moveSlide("direita")}>{">"}</button>
+                <button id="left" className="w-[15%] absolute left-0 top-0 bottom-0" onClick={() => moveSlide("esquerda")}>{"<"}</button>
+                <button id="right" className="w-[15%] absolute right-0 top-0 bottom-0" onClick={() => moveSlide("direita")}>{">"}</button>
             </div>
+            {showIndice && (
+                <div style={{ width: width }} className="flex gap-2 mt-2 justify-center">
+                    {imgs.map((item, i) => <div key={i} className={`h-2 w-2 rounded border ${indiceAtivo === i + 1 && "bg-red-600"}`}></div>)}
+                </div>
+            )}
         </>
     )
 }
