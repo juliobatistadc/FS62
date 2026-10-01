@@ -3,7 +3,7 @@ import { TermoBusca } from "../customHooks/useBusca"
 import { useNavigate } from "react-router";
 
 function InputHeader() {
-    const { busca, setBusca } = useContext(TermoBusca)
+    const { busca, setBusca } = useContext(TermoBusca);
     const navigate = useNavigate();
 
     return (
@@ -11,6 +11,7 @@ function InputHeader() {
             <form onSubmit={()=> navigate(`product-list/${busca}`)}>
                 <input type="text" className="bg-gray-200" value={busca} onInput={(e) => { setBusca(e.target.value) }} />
                 <button>E</button>
+                <input id="ch" type="checkbox" className="" />
             </form>
         </>
     )

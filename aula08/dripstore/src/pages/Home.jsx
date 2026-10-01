@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router"
 import ProductSection from "../components/ProductSection"
 import Slide from "../components/Slide"
+import Filter from "../components/Filter"
 
 function Home() {
     const lista = [
@@ -15,6 +16,7 @@ function Home() {
     return (
         <>
             <ProductSection />
+            <Filter />
             <Slide imgs={lista} width={500} temporizador={0.5} showIndice={true} />
             <Slide imgs={lista} width={500} temporizador={0.5}  />
         </>
