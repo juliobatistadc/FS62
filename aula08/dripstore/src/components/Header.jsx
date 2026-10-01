@@ -1,6 +1,7 @@
 import { NavLink } from "react-router"
+import InputHeader from "./InputHeader"
 
-function Header(){
+function Header({onSetBusca}){
     return(
         <>
             <header>HEADER</header>
@@ -18,6 +19,7 @@ function Header(){
                     <li>
                         <NavLink to="teste">teste</NavLink>
                     </li>
+                    <InputHeader onSetBusca={onSetBusca} />
                 </ul>
             </nav>
         </>

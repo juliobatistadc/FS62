@@ -27,8 +27,6 @@ function Form(props) {
         const dataForm = Object.fromEntries(formData)
 
         const a = JSON.stringify(dataForm)
-
-        console.log(a)
     }
 
     return (
