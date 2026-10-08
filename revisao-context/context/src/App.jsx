@@ -1,9 +1,9 @@
-import Main from "./pages/Main"
+import Rotas from "./rotas/Rotas"
 
 function App() {
   return (
     <>
-      <Main />
+      <Rotas />
     </>
   )
 }

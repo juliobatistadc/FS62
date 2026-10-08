@@ -1,11 +1,10 @@
-import Settings from "./Settings"
+import { Link } from "react-router";
 
 function MainPage(){
     return(
         <>
-            <button>Main page</button>
-            <button>Settings</button>
-            <Settings />
+            <Link to="/layout">Main page</Link>
+            <Link to="/settings">Settings</Link>
         </>
     )
 }

@@ -1,14 +1,6 @@
 import { useState } from "react"
 
 function Settings() {
-    const initialSettings = {
-        tema: "",
-        idioma: "",
-        nome: ""
-    }
-
-    const [settings, setSettings] = useState(initialSettings)
-
     return (
         <>
             <label htmlFor="tema" style={{ display: "flex" }}>
