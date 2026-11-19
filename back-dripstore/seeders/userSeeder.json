@@ -1,0 +1,122 @@
+[
+  {
+    "firstName": "julio",
+    "surName": "cesar batista da silva",
+    "email": "julio01@gmail.com",
+    "password": "teste123"
+  },
+  {
+    "firstName": "marcos",
+    "surName": "antonio ferreira",
+    "email": "marcos02@gmail.com",
+    "password": "senha456"
+  },
+  {
+    "firstName": "ana",
+    "surName": "paula costa santos",
+    "email": "ana03@gmail.com",
+    "password": "senha789"
+  },
+  {
+    "firstName": "pedro",
+    "surName": "henrique oliveira",
+    "email": "pedro04@gmail.com",
+    "password": "teste321"
+  },
+  {
+    "firstName": "fernanda",
+    "surName": "lima rodrigues",
+    "email": "fernanda05@gmail.com",
+    "password": "abc123"
+  },
+  {
+    "firstName": "lucas",
+    "surName": "martins pereira",
+    "email": "lucas06@gmail.com",
+    "password": "senha654"
+  },
+  {
+    "firstName": "camila",
+    "surName": "almeida souza",
+    "email": "camila07@gmail.com",
+    "password": "teste987"
+  },
+  {
+    "firstName": "gabriel",
+    "surName": "rocha mendes",
+    "email": "gabriel08@gmail.com",
+    "password": "pass123"
+  },
+  {
+    "firstName": "beatriz",
+    "surName": "carvalho santos",
+    "email": "beatriz09@gmail.com",
+    "password": "senha321"
+  },
+  {
+    "firstName": "rafael",
+    "surName": "goncalves lima",
+    "email": "rafael10@gmail.com",
+    "password": "teste456"
+  },
+  {
+    "firstName": "isabela",
+    "surName": "nunes barbosa",
+    "email": "isabela11@gmail.com",
+    "password": "abc789"
+  },
+  {
+    "firstName": "thiago",
+    "surName": "moreira costa",
+    "email": "thiago12@gmail.com",
+    "password": "senha123"
+  },
+  {
+    "firstName": "mariana",
+    "surName": "freitas oliveira",
+    "email": "mariana13@gmail.com",
+    "password": "teste654"
+  },
+  {
+    "firstName": "bruno",
+    "surName": "ribeiro santos",
+    "email": "bruno14@gmail.com",
+    "password": "pass456"
+  },
+  {
+    "firstName": "leticia",
+    "surName": "pereira machado",
+    "email": "leticia15@gmail.com",
+    "password": "senha987"
+  },
+  {
+    "firstName": "vinicius",
+    "surName": "araujo silva",
+    "email": "vinicius16@gmail.com",
+    "password": "teste789"
+  },
+  {
+    "firstName": "carolina",
+    "surName": "melo fernandes",
+    "email": "carolina17@gmail.com",
+    "password": "abc456"
+  },
+  {
+    "firstName": "daniel",
+    "surName": "castro alves",
+    "email": "daniel18@gmail.com",
+    "password": "senha654"
+  },
+  {
+    "firstName": "patricia",
+    "surName": "dias monteiro",
+    "email": "patricia19@gmail.com",
+    "password": "teste321"
+  },
+  {
+    "firstName": "eduardo",
+    "surName": "cardoso barbosa",
+    "email": "eduardo20@gmail.com",
+    "password": "pass789"
+  }
+]

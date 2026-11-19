@@ -32,11 +32,11 @@ Product.init(
             type: DataTypes.STRING(200),
         },
         discount: {
-            type: DataTypes.FLOAT(4,2),
+            type: DataTypes.DECIMAL(4,2),
             defaultValue: 0,
         },
         price: {
-            type: DataTypes.FLOAT(10,2),
+            type: DataTypes.DECIMAL(10,2),
             allowNull: false,
         }
     },
